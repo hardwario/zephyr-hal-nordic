@@ -325,5 +325,9 @@ void SystemInit(void)
         }
     #endif
 
+#if !defined(CONFIG_MCUBOOT)
+    *((volatile uint32_t *)0xE000ED94) = 0x4;
+#endif
+
     SystemCoreClockUpdate();
 }
